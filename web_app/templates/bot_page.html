@@ -1,0 +1,12 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+  <form action="run_bot/" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Run SqreenshotBot" />
+  </form>
+  <form action="run_debug_bot/" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Run Debug-SqreenshotBot" />
+  </form>
+    {{ block.super }}
+{% endblock %}
