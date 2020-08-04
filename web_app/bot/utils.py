@@ -21,7 +21,12 @@ def screen_by_url(message, **kwargs):
 
     driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', 
     						  chrome_options=chrome_options)
-    driver.get(url)
+
+    try:
+        driver.get(url)
+    except:
+        bot.send_message(message.chat.id, 
+                        'Wrong URL! Try again.')
     time.sleep(2)
 
     height = driver.execute_script("return document.documentElement.scrollHeight")
